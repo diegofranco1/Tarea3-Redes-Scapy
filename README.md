@@ -1,6 +1,6 @@
 # Tarea 3 Redes - Inyección y Modificación de Tráfico con Scapy
 
-Este proyecto corresponde a la **Tarea 3 del curso de Redes**, en la cual se analiza el comportamiento de una arquitectura cliente-servidor ante la **inyección y modificación de paquetes de red**, utilizando la herramienta **Scapy**.
+Este proyecto corresponde a la **Tarea 3 del curso de Redes**, en la cual se analiza el comportamiento de una arquitectura cliente-servidor ante la **inyección y modificación de paquetes de red**, utilizando la herramienta **Scapy** y el protocolo **RTSP** para transmisión de video.
 
 ---
 
@@ -21,6 +21,7 @@ Este proyecto corresponde a la **Tarea 3 del curso de Redes**, en la cual se ana
 │   ├── script_inyeccion.py
 │   └── script_modificacion.py
 ├── servidor/
+│   ├── Dockerfile
 │   └── servidor.py
 ├── video/
 │   └── demo.mp4
@@ -33,32 +34,55 @@ Este proyecto corresponde a la **Tarea 3 del curso de Redes**, en la cual se ana
 
 ## ⚙️ Requisitos
 
-- Docker (recomendado para el cliente)
+- Docker (recomendado para cliente y servidor)
 - Python 3.x
 - Scapy (`pip install scapy`) si se instala localmente
+- ffmpeg (para enviar video RTSP)
 
 ---
 
 ## 🚀 Instalación y ejecución
 
-### Servidor
+### Servidor (Docker)
+
+Desde la carpeta `servidor/`, construye y ejecuta el contenedor del servidor RTSP:
 
 ```bash
 cd servidor
-python3 servidor.py
+docker build -t servidor-rtsp .
+docker run -it --rm --name servidor-rtsp --net=host servidor-rtsp
 ```
 
-Asegúrate de que el servidor esté corriendo antes de ejecutar Scapy.
+> ⚠️ Usamos `--net=host` para permitir acceso completo al tráfico de red, necesario para probar Scapy.
 
 ---
 
-### Cliente con Scapy (usando contenedor)
+### Cliente (Docker con Scapy)
+
+Desde la carpeta `cliente/`, construye y ejecuta el contenedor con Scapy:
 
 ```bash
 cd cliente
-docker build -t scapy-container .
-docker run -it --net=host --cap-add=NET_ADMIN --cap-add=NET_RAW scapy-container
+docker build -t cliente-scapy .
+docker run -it --rm --name cliente-scapy --net=host --cap-add=NET_ADMIN --cap-add=NET_RAW cliente-scapy
 ```
+
+---
+
+## 🎥 Envío de flujo RTSP desde el cliente
+
+Para enviar un flujo de video de prueba al servidor usando RTSP (por ejemplo, con `ffmpeg`):
+
+```bash
+ffmpeg -re -stream_loop -1 -i video_prueba.mp4 -c copy -f rtsp rtsp://localhost:8554/mistream
+```
+
+- `-re`: envía el video en tiempo real.
+- `-stream_loop -1`: repite el video infinitamente.
+- `-i video_prueba.mp4`: tu archivo de video local.
+- `rtsp://localhost:8554/mistream`: dirección del servidor RTSP (ajústala si es diferente).
+
+> Si el servidor escucha en otra IP, reemplaza `localhost` por la IP correspondiente (por ejemplo, `192.168.1.100`).
 
 ---
 
