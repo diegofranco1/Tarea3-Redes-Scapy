@@ -124,8 +124,8 @@ El informe completo con el análisis, resultados y conclusiones se encuentra en 
 
 ## 📚 Autores
 
-- Nombre 1 – Rol: Servidor
-- Nombre 2 – Rol: Cliente / Scapy
+- Diego Franco – Rol: Servidor
+- Vicente Gonzalez– Rol: Cliente / Scapy
 
 ---
 
@@ -133,5 +133,5 @@ El informe completo con el análisis, resultados y conclusiones se encuentra en 
 
 Para cualquier duda o comentario sobre este trabajo, puedes escribir a:
 
-- alumno1@uc.cl
-- alumno2@uc.cl
+- diego.franco@mail.udp.cl
+- vicente.gonzalez@mail.udp.cl
