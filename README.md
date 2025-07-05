@@ -49,8 +49,7 @@ Desde la carpeta `servidor/`, construye y ejecuta el contenedor del servidor RTS
 
 ```bash
 cd servidor
-docker build -t servidor-rtsp .
-docker run -it --rm --name servidor-rtsp --net=host servidor-rtsp
+ docker run --rm -it --network=host bluenviron/mediamtx:latest
 ```
 
 > ⚠️ Usamos `--net=host` para permitir acceso completo al tráfico de red, necesario para probar Scapy.
