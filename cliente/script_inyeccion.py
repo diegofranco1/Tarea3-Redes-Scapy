@@ -1,5 +1,3 @@
-script python para fuzzing
-
 from scapy.all import *
 
 IP_SERVIDOR = "10.147.19.221"
