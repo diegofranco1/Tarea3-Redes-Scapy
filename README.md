@@ -107,9 +107,7 @@ Este script realiza **3 modificaciones dirigidas** a campos específicos del pro
 
 ## 📹 Video demostrativo
 
-Se encuentra disponible en la carpeta `/video/demo.mp4`.
-
-También puedes verlo en [YouTube](www.youtube.com/watch?si=uAhnzhLyhsotrm2y&v=0QpekNadrtI&feature=youtu.be) 
+[![Ver video en YouTube](https://img.youtube.com/vi/0QpekNadrtI/0.jpg)](https://www.youtube.com/watch?v=0QpekNadrtI)
 
 ---
 
