@@ -23,8 +23,6 @@ Este proyecto corresponde a la **Tarea 3 del curso de Redes**, en la cual se ana
 ├── servidor/
 │   ├── Dockerfile
 │   └── servidor.py
-├── video/
-│   └── demo.mp4
 ├── informe/
 │   └── informe.pdf
 └── README.md
@@ -111,7 +109,7 @@ Este script realiza **3 modificaciones dirigidas** a campos específicos del pro
 
 Se encuentra disponible en la carpeta `/video/demo.mp4`.
 
-También puedes verlo en [YouTube](https://youtube.com/...) *(reemplaza con el enlace si corresponde).*
+También puedes verlo en [YouTube](www.youtube.com/watch?si=uAhnzhLyhsotrm2y&v=0QpekNadrtI&feature=youtu.be) 
 
 ---
 
